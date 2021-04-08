@@ -119,5 +119,23 @@ namespace AplicacionMDI
       this.ListarCategorias();
     }
 
+     
+      private void btnCerrar_Click(object sender, EventArgs e)
+      {
+          Close();
+      }
+      private void dgvListado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+      {
+          if (this.dgvListado.CurrentRow != null)
+          {
+              this.Actual = (Categoria)this.dgvListado.CurrentRow.DataBoundItem;
+              this.PresentarDatos();
+          }
+          else
+          {
+              MessageBox.Show("Debe seleccionar una categoría", this.Text);
+              this.dgvListado.Focus();
+          }
+      }
   }
 }
