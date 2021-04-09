@@ -10,11 +10,12 @@ namespace AplicacionMDI
   {
 
     public static List<Categoria> Categorias = new List<Categoria>();
-      
-    /// <summary>
-    /// Punto de entrada principal para la aplicación.
-    /// </summary>
-    [STAThread]
+    public static List<DocumentoVenta> Ventas = new List<DocumentoVenta>();
+
+        /// <summary>
+        /// Punto de entrada principal para la aplicación.
+        /// </summary>
+        [STAThread]
     static void Main()
     {
       Application.EnableVisualStyles();

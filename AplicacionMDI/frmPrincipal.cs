@@ -27,5 +27,13 @@ namespace AplicacionMDI
       //frm.ListarCategorias();
       // Singleton
     }
+
+    private void mnuDocumentoVentas_Click(object sender, EventArgs e)
+    {
+        fmrVenta frm = new fmrVenta();
+        frm.MdiParent = this;
+        frm.WindowState = FormWindowState.Maximized;
+        frm.Show();
+    }
   }
 }

@@ -9,3 +9,15 @@ C:\Users\marco\Desktop\PROGRA3\AplicacionMDI\AplicacionMDI\obj\Debug\AplicacionM
 C:\Users\marco\Desktop\PROGRA3\AplicacionMDI\AplicacionMDI\obj\Debug\AplicacionMDI.csproj.CoreCompileInputs.cache
 C:\Users\marco\Desktop\PROGRA3\AplicacionMDI\AplicacionMDI\obj\Debug\AplicacionMDI.exe
 C:\Users\marco\Desktop\PROGRA3\AplicacionMDI\AplicacionMDI\obj\Debug\AplicacionMDI.pdb
+C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI\bin\Debug\AplicacionMDI.exe.config
+C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI\bin\Debug\AplicacionMDI.exe
+C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI\bin\Debug\AplicacionMDI.pdb
+C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI\obj\Debug\AplicacionMDI.csprojAssemblyReference.cache
+C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI\obj\Debug\AplicacionMDI.fmrVenta.resources
+C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI\obj\Debug\AplicacionMDI.frmPrincipal.resources
+C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI\obj\Debug\AplicacionMDI.frmCategorias.resources
+C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI\obj\Debug\AplicacionMDI.Properties.Resources.resources
+C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI\obj\Debug\AplicacionMDI.csproj.GenerateResource.cache
+C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI\obj\Debug\AplicacionMDI.csproj.CoreCompileInputs.cache
+C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI\obj\Debug\AplicacionMDI.exe
+C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI\obj\Debug\AplicacionMDI.pdb
