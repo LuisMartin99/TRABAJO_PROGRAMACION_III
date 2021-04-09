@@ -75,14 +75,26 @@ namespace AplicacionMDI
     }
 
     private void ListarCategorias()
-    {
-      this.dgvListado.DataSource = null;
-      if (Program.Categorias.Count > 0)
-      {
-        this.dgvListado.AutoGenerateColumns = false;
-        this.dgvListado.DataSource = Program.Categorias;
-      }
-    }
+     {
+            this.dgvListado.DataSource = null;
+            if (Program.Categorias.Count > 0)
+            {
+                this.dgvListado.AutoGenerateColumns = false;
+                this.dgvListado.DataSource = Program.Categorias;
+                foreach (DataGridViewRow Myrow in dgvListado.Rows)
+                {
+                    if ((bool)Myrow.Cells["cdVigente"].Value == false)
+                    {
+                        Myrow.DefaultCellStyle.BackColor = Color.Red;
+                    }
+                    else
+                    {
+                        Myrow.DefaultCellStyle.BackColor = Color.Black;
+                    }
+                }
+            }
+     }
+   
 
     private void GuardarDatos(Categoria wCategoria)
     {
