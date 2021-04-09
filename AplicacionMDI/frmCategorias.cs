@@ -43,8 +43,8 @@ namespace AplicacionMDI
 
     private void LimpiarControles()
     {
-      this.txtNombre.Text = "abc";
-      this.txtDescripcion.Text = "FRED";
+      this.txtNombre.Text = "";
+      this.txtDescripcion.Text = "";
       this.chkVigente.Checked = true;
     }
 
