@@ -29,6 +29,7 @@ namespace AplicacionMDI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gbTrabajador = new System.Windows.Forms.GroupBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -56,9 +57,11 @@ namespace AplicacionMDI
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.errNotificacion = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbTrabajador.SuspendLayout();
             this.gbListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errNotificacion)).BeginInit();
             this.SuspendLayout();
             // 
             // gbTrabajador
@@ -271,18 +274,21 @@ namespace AplicacionMDI
             // 
             // Apellidos
             // 
+            this.Apellidos.DataPropertyName = "Apellidos";
             this.Apellidos.HeaderText = "Apellidos";
             this.Apellidos.Name = "Apellidos";
             this.Apellidos.ReadOnly = true;
             // 
             // Email
             // 
+            this.Email.DataPropertyName = "Email";
             this.Email.HeaderText = "Email";
             this.Email.Name = "Email";
             this.Email.ReadOnly = true;
             // 
             // NrodeDocumento
             // 
+            this.NrodeDocumento.DataPropertyName = "Nro Documento";
             this.NrodeDocumento.HeaderText = "Nro de Documento";
             this.NrodeDocumento.Name = "NrodeDocumento";
             this.NrodeDocumento.ReadOnly = true;
@@ -329,6 +335,10 @@ namespace AplicacionMDI
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // errNotificacion
+            // 
+            this.errNotificacion.ContainerControl = this;
+            // 
             // frmTrabajador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -344,6 +354,7 @@ namespace AplicacionMDI
             this.gbTrabajador.PerformLayout();
             this.gbListado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errNotificacion)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -372,10 +383,11 @@ namespace AplicacionMDI
         private System.Windows.Forms.DataGridView dgvListado;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.ErrorProvider errNotificacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellidos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn NrodeDocumento;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cdVigente;
-        private System.Windows.Forms.Button btnCerrar;
     }
 }

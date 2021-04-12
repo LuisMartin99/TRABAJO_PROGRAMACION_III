@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace AplicacionMDI
 {
@@ -60,21 +61,26 @@ namespace AplicacionMDI
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             Trabajador trab;
-
+            
             if (this.ValidateChildren() == true)
             {
-                if (this.Actual == null)
-                {
-                    trab = new Trabajador();
-                    Program.Trabajadores.Add(trab);
+                BorrarMensajeError();
+                if (ValidarCampos()) 
+                { 
+                    if (this.Actual == null)
+                    {
+                        trab = new Trabajador();
+                        Program.Trabajadores.Add(trab);
+                    }
+                    else
+                    {
+                        trab = this.Actual;
+                    }
+                    this.GuardarDatos(trab);
+                    this.ListarTrabajadores();
+                    this.ActivarControles(false);
+                    this.AutoValidate = AutoValidate.Disable;
                 }
-                else
-                {
-                    trab = this.Actual;
-                }
-                this.GuardarDatos(trab);
-                this.ListarTrabajadores();
-                this.ActivarControles(false);
             }
         }
 
@@ -115,7 +121,7 @@ namespace AplicacionMDI
         }
 
         private void PresentarDatos()
-        {          
+        {
             this.txtNombre.Text = this.Actual.Nombres;
             this.txtApellido.Text = this.Actual.Apellidos;
             this.cboDocumento.Text = this.Actual.TipoDocumento.Nombre;
@@ -129,7 +135,7 @@ namespace AplicacionMDI
 
         private void frmDocumentoPersona_Load(object sender, EventArgs e)
         {
-            
+
             this.CargarDocumentoPersona();
         }
 
@@ -146,6 +152,24 @@ namespace AplicacionMDI
             this.Close();
         }
 
-       
+        private bool ValidarCampos()
+        {
+            bool ok = true;
+            Regex miRegex = new Regex(@"\S+@\S+\.\S+");
+             var match = miRegex.Match(txtEmail.Text);
+            if (!match.Success)
+            {
+                ok = false;
+                errNotificacion.SetError(txtEmail, "Email Incorrecto");
+            }
+            return ok;
+        }
+
+        private void BorrarMensajeError()
+        {
+            errNotificacion.SetError(txtEmail, "");
+        }
+
+
     }
 }

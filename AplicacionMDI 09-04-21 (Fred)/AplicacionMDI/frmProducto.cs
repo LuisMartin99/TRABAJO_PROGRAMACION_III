@@ -61,20 +61,29 @@ namespace AplicacionMDI
 
       if (this.ValidateChildren() == true)
       {
-        if (this.Actual == null)
-        {
-          prod = new Producto();
-          Program.Productos.Add(prod);
-        }
+                BorrarMensajeError();
+                if (ValidarCampos())
+                {
+                    if (this.Actual == null)
+                    {
+                        prod = new Producto();
+                        Program.Productos.Add(prod);
+                    }
+                    else
+                    {
+                        prod = this.Actual;
+                    }
+                    this.GuardarDatos(prod);
+                    this.ListarProductos();
+                    this.ActivarControles(false);
+                }
+      }
         else
         {
-          prod = this.Actual;
+            this.AutoValidate = AutoValidate.EnableAllowFocusChange;
         }
-        this.GuardarDatos(prod);
-        this.ListarProductos();
-        this.ActivarControles(false);
-      }
-    }
+
+       }
 
     private void ListarProductos()
     {
@@ -140,5 +149,54 @@ namespace AplicacionMDI
       this.Close();
     }
 
-  }
+        //private void txtNombre_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        //{
+        //    if (string.IsNullOrEmpty(this.txtNombre.Text) == true)
+        //    {
+
+        //        this.errNotificacion.SetError(this.txtNombre,
+        //                 "Debe ingresar nombre");
+        //        e.Cancel = true; // Informo que no cumple validación
+        //    }
+        //    else
+        //    {
+        //        this.errNotificacion.SetError(this.txtNombre, "");
+        //    }
+        //}
+
+        //private void cboCategoria_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        //{
+        //    if (this.cboCategoria.SelectedItem == null)
+        //    {
+        //        this.errNotificacion.SetError(this.cboCategoria,
+        //                 "Debe seleccionar categoria");
+        //        e.Cancel = true; // Informo que no cumple validación
+        //    }
+        //    else
+        //    {
+        //        this.errNotificacion.SetError(this.cboCategoria, "");
+        //    }
+        //}
+        private bool ValidarCampos()
+        {
+            bool ok = true;
+            if (txtNombre.Text=="")
+            {
+                ok = false;
+                errNotificacion.SetError(txtNombre, "Ingrese nombre");
+            }
+            if (cboCategoria.SelectedItem == null)
+            {
+                ok = false;
+                errNotificacion.SetError(cboCategoria, "Seleccione categoria");
+            }
+            return ok;
+        }
+
+        private void BorrarMensajeError()
+        {
+            errNotificacion.SetError(txtNombre, "");
+            errNotificacion.SetError(cboCategoria, "");
+        }
+    }
 }

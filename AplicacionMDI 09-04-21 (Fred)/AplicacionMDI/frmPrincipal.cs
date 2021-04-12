@@ -55,5 +55,14 @@ namespace AplicacionMDI
       frm.Show();
 
     }
-  }
+
+        private void mnuDocumentoPersonas_Click(object sender, EventArgs e)
+        {
+            frmDocumentoPersona frm = new frmDocumentoPersona();
+
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
+        }
+    }
 }

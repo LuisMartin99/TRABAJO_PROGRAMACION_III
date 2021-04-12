@@ -131,6 +131,7 @@
             this.mnuDocumentoPersonas.Name = "mnuDocumentoPersonas";
             this.mnuDocumentoPersonas.Size = new System.Drawing.Size(203, 22);
             this.mnuDocumentoPersonas.Text = "Documento de personas";
+            this.mnuDocumentoPersonas.Click += new System.EventHandler(this.mnuDocumentoPersonas_Click);
             // 
             // mnuDocumentoVentas
             // 
