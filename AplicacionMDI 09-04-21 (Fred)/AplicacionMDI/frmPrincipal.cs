@@ -55,14 +55,5 @@ namespace AplicacionMDI
       frm.Show();
 
     }
-
-        private void toolStripMenuItem4_Click(object sender, EventArgs e)
-        {
-            frmUsuarios frm = new frmUsuarios();
-
-            frm.MdiParent = this;
-            frm.WindowState = FormWindowState.Maximized;
-            frm.Show();
-        }
-    }
+  }
 }
