@@ -13,7 +13,6 @@ C:\Users\Alfredo Mondragon\Documents\PROGRAMACION III\AplicacionMDI 09-04-21\Apl
 C:\Users\Alfredo Mondragon\Documents\PROGRAMACION III\AplicacionMDI 09-04-21\AplicacionMDI\obj\Debug\AplicacionMDI.csproj.CoreCompileInputs.cache
 C:\Users\Alfredo Mondragon\Documents\PROGRAMACION III\AplicacionMDI 09-04-21\AplicacionMDI\obj\Debug\AplicacionMDI.exe
 C:\Users\Alfredo Mondragon\Documents\PROGRAMACION III\AplicacionMDI 09-04-21\AplicacionMDI\obj\Debug\AplicacionMDI.pdb
-C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI 09-04-21 (Fred)\AplicacionMDI\obj\Debug\AplicacionMDI.csprojAssemblyReference.cache
 C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI 09-04-21 (Fred)\AplicacionMDI\obj\Debug\AplicacionMDI.frmDocumentoPersona.resources
 C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI 09-04-21 (Fred)\AplicacionMDI\obj\Debug\AplicacionMDI.frmProducto.resources
 C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI 09-04-21 (Fred)\AplicacionMDI\obj\Debug\AplicacionMDI.frmPrincipal.resources
@@ -23,8 +22,9 @@ C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI 09-04-21 (Fred)\Aplicacion
 C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI 09-04-21 (Fred)\AplicacionMDI\obj\Debug\AplicacionMDI.Properties.Resources.resources
 C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI 09-04-21 (Fred)\AplicacionMDI\obj\Debug\AplicacionMDI.csproj.GenerateResource.cache
 C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI 09-04-21 (Fred)\AplicacionMDI\obj\Debug\AplicacionMDI.csproj.CoreCompileInputs.cache
-C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI 09-04-21 (Fred)\AplicacionMDI\obj\Debug\AplicacionMDI.exe
-C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI 09-04-21 (Fred)\AplicacionMDI\obj\Debug\AplicacionMDI.pdb
 C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI 09-04-21 (Fred)\AplicacionMDI\bin\Debug\AplicacionMDI.exe.config
 C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI 09-04-21 (Fred)\AplicacionMDI\bin\Debug\AplicacionMDI.exe
 C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI 09-04-21 (Fred)\AplicacionMDI\bin\Debug\AplicacionMDI.pdb
+C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI 09-04-21 (Fred)\AplicacionMDI\obj\Debug\AplicacionMDI.frmUsuarios.resources
+C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI 09-04-21 (Fred)\AplicacionMDI\obj\Debug\AplicacionMDI.exe
+C:\Users\marco\TRABAJO_PROGRAMACION_III\AplicacionMDI 09-04-21 (Fred)\AplicacionMDI\obj\Debug\AplicacionMDI.pdb

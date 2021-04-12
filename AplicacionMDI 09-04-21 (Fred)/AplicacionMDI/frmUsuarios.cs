@@ -87,8 +87,8 @@ namespace AplicacionMDI
         private void GuardarDatos(Usuario wUsuarios)
         {
             wUsuarios.Nombre = this.txtNombre.Text;
-            wUsuarios.Clave = this.txtNombre.Text;
-            wUsuarios.Tipo = this.txtNombre.Text;
+            wUsuarios.Clave = this.txtPassword.Text;
+            wUsuarios.Tipo = this.txtTipo.Text;
             wUsuarios.Vigente = this.chkVigente.Checked;
         }
 
@@ -124,7 +124,5 @@ namespace AplicacionMDI
         {
             this.Close();
         }
-
     }
-
 }
