@@ -23,48 +23,67 @@ namespace AplicacionMDI
 
     private void btnBuscar_Click(object sender, EventArgs e)
     {
-      frmBuscarCliente frm = new frmBuscarCliente();
-
-      this.Cliente = frm.Buscar();
-      if( this.Cliente != null)
-      {
-        this.txtCliente.Text = this.Cliente.NombreCompleto;
-      }
-      else
-      {
-        this.txtCliente.Text = "";
-      }
+            BuscarCliente();
     }
+
+        private void BuscarCliente()
+        {
+            frmBuscarCliente frm = new frmBuscarCliente();
+
+            this.Cliente = frm.Buscar();
+            if (this.Cliente != null)
+            {
+                this.txtCliente.Text = this.Cliente.NombreCompleto;
+            }
+            else
+            {
+                this.txtCliente.Text = "";
+            }
+        }
 
     private void btnAgregar_Click(object sender, EventArgs e)
     {
-      frmDetalleVenta frm = new frmDetalleVenta();
-      DetalleVenta det;
-
-      det = frm.Agregar();
-      if ( det != null)
-      {
-        this.Detalles.Add(det);
-        this.dgvDetalles.DataSource = null;
-        this.dgvDetalles.AutoGenerateColumns = false;
-        this.dgvDetalles.DataSource = this.Detalles;
-      }
+       Agregar();
 
     }
+
+    private void Agregar()
+        {
+            frmDetalleVenta frm = new frmDetalleVenta();
+            DetalleVenta det;
+
+            det = frm.Agregar();
+            if (det != null)
+            {
+                this.Detalles.Add(det);
+                this.dgvDetalles.DataSource = null;
+                this.dgvDetalles.AutoGenerateColumns = false;
+                this.dgvDetalles.DataSource = this.Detalles;
+            }
+        }
 
     private void btnAceptar_Click(object sender, EventArgs e)
     {
-      Venta venta;
-
-      if( this.ValidateChildren () == true)
-      {
-        venta = this.CrearEntidad();
-
-        Program.Ventas.Add(venta);
-        this.Close();
-      }
+            Aceptar();
 
     }
+
+        private void Aceptar()
+        {
+            Venta venta;
+
+            if (this.ValidateChildren() == true)
+            {
+                BorrarMensajeError();
+                if (ValidarCampos())
+                {
+                    venta = this.CrearEntidad();
+
+                    Program.Ventas.Add(venta);
+                    this.Close();
+                }
+            }
+        }
 
     private Venta CrearEntidad()
     {
@@ -79,5 +98,103 @@ namespace AplicacionMDI
         Detalles = this.Detalles
       };
     }
-  }
+
+        private bool ValidarCampos()
+        {
+            bool ok = true;
+            if (txtCliente.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(txtCliente, "Ingrese nombre");
+            }
+            return ok;
+        }
+
+        private void BorrarMensajeError()
+        {
+            errorProvider1.SetError(txtCliente, "");
+        }
+
+        private void frmVenta_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                BuscarCliente();
+            }
+
+            if (e.KeyCode == Keys.F3)
+            {
+                Agregar();
+            }
+
+            if (e.KeyCode == Keys.F5)
+            {
+                Aceptar();
+            }
+
+            if (e.KeyCode == Keys.F6)
+            {
+                Close();
+            }
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        //private void Eliminar()
+        //{
+        //     DetalleVenta Actual;
+        //    if (this.dgvDetalles.CurrentRow != null)
+        //    {
+        //        Actual = (DetalleVenta)this.dgvDetalles.CurrentRow.DataBoundItem;
+        //        this.Detalles.Remove(Actual);
+
+        //        this.dgvDetalles.DataSource = this.Detalles;
+        //        this.dgvDetalles.Refresh();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Debe seleccionar un detalle para eliminar", this.Text);
+        //        this.dgvDetalles.Focus();
+        //    }
+        //}
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void frmVenta_Load(object sender, EventArgs e)
+        {
+            CargarInicial();
+        }
+
+        private void CargarInicial()
+        {
+            int ultimoNumero = 0;
+            if (Program.Ventas.Count != 0)
+            {
+                cboDocumento.SelectedItem = "Boleta";
+                ultimoNumero = Program.Ventas.Where(v => v.NombreDocumento == "Boleta").Last().Numero;
+                txtNumero.Text = Convert.ToString(ultimoNumero + 1);
+            }
+        }
+
+        private void cboDocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboDocumento.SelectedItem == "Boleta")
+            {
+                txtSerie.Text = "B001";
+                var ultimoNumero = Program.Ventas.Last().Numero;
+                txtNumero.Text = Convert.ToString(ultimoNumero + 1);
+            }
+            if (cboDocumento.SelectedItem == "Factura")
+            {
+                txtSerie.Text = "F001";
+            }
+        }
+    }
 }
