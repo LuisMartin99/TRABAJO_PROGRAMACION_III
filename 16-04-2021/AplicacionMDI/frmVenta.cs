@@ -188,12 +188,22 @@ namespace AplicacionMDI
             if (cboDocumento.SelectedItem == "Boleta")
             {
                 txtSerie.Text = "B001";
-                var ultimoNumero = Program.Ventas.Last().Numero;
-                txtNumero.Text = Convert.ToString(ultimoNumero + 1);
+                //var ultimoNumero = Program.Ventas.Last().Numero;
+                //txtNumero.Text = Convert.ToString(ultimoNumero + 1);
             }
             if (cboDocumento.SelectedItem == "Factura")
             {
                 txtSerie.Text = "F001";
+            }
+        }
+
+        private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo Ingresar Numeros", "ERROR.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
             }
         }
     }

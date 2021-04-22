@@ -13,6 +13,7 @@ namespace AplicacionMDI
     public static List<Producto> Productos = new List<Producto>();
     public static List<Cliente> Clientes = new List<Cliente>();
     public static List<Venta> Ventas = new List<Venta>();
+        public static List<DocumentoVenta> DocumentoVentas = new List<DocumentoVenta>();
 
     /// <summary>
     /// Punto de entrada principal para la aplicación.

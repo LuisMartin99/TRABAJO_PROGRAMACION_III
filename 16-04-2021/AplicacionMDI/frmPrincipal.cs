@@ -54,5 +54,14 @@ namespace AplicacionMDI
       frm.WindowState = FormWindowState.Maximized;
       frm.Show();
     }
-  }
+
+        private void mnuDocumentoVentas_Click(object sender, EventArgs e)
+        {
+            frmDocumentoVenta frm = new frmDocumentoVenta();
+
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
+        }
+    }
 }
