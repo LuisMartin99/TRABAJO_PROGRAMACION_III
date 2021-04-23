@@ -82,34 +82,44 @@ namespace AplicacionMDI
 
         private void Aceptar()
         {
+
             Venta venta;
 
             if (this.ValidateChildren() == true)
             {
                 BorrarMensajeError();
-                if (ValidarCampos())
-                {
-                    venta = this.CrearEntidad();
 
-                    Program.Ventas.Add(venta);
-                    this.Close();
+                if (this.Detalles.Count > 0)
+                {
+                    if (ValidarCampos())
+                    {
+                        venta = this.CrearEntidad();
+
+                        Program.Ventas.Add(venta);
+                        MessageBox.Show("Venta Registrada con Exito.", this.Text, MessageBoxButtons.OK);
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Agregar Productos", ".:ALERTA:.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }
 
-    private Venta CrearEntidad()
-    {
-      return new Venta()
-      {
-        Cliente = this.Cliente,
-        TipoDocumento = this.cboDocumento.Text.Substring(0, 1),
-        Serie = this.txtSerie.Text ,
-        Numero = Int32.Parse( this.txtNumero.Text ),
-        Fecha = this.dtpFecha.Value,
-        Vigente = true ,
-        Detalles = this.Detalles
-      };
-    }
+        private Venta CrearEntidad()
+        {
+            return new Venta()
+            {
+                Cliente = this.Cliente,
+                TipoDocumento = this.cboDocumento.Text.Substring(0, 1),
+                Serie = this.txtSerie.Text ,
+                Numero = Int32.Parse( this.txtNumero.Text ),
+                Fecha = this.dtpFecha.Value,
+                Vigente = true ,
+                Detalles = this.Detalles
+            };
+        }
 
         private bool ValidarCampos()
         {
