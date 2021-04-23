@@ -24,13 +24,21 @@ namespace AplicacionMDI
 
     private void btnListar_Click(object sender, EventArgs e)
     {
-      this.dgvListado.DataSource = null;
-      if( Program.Ventas.Count > 0 )
-      {
-        this.dgvListado.AutoGenerateColumns = false;
-        this.dgvListado.DataSource = Program.Ventas;
-      }
+            ListarVentas();
     }
+        private void ListarVentas()
+        {
+            this.dgvListado.DataSource = null;
+            if (Program.Ventas.Count > 0)
+            {
+                this.dgvListado.AutoGenerateColumns = false;
+                this.dgvListado.DataSource = Program.Ventas;
+            }
+        }
 
-  }
+        private void frmListadoVentas_Load(object sender, EventArgs e)
+        {
+            ListarVentas();
+        }
+    }
 }

@@ -10,21 +10,21 @@ using System.Windows.Forms;
 
 namespace AplicacionMDI
 {
-  public partial class frmVenta : Form
-  {
-
-    private Cliente Cliente;
-    private List<DetalleVenta> Detalles = new List<DetalleVenta>();
-
-    public frmVenta()
+    public partial class frmVenta : Form
     {
-      InitializeComponent();
-    }
 
-    private void btnBuscar_Click(object sender, EventArgs e)
-    {
+        private Cliente Cliente;
+        private List<DetalleVenta> Detalles = new List<DetalleVenta>();
+
+        public frmVenta()
+        {
+            InitializeComponent();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
             BuscarCliente();
-    }
+        }
 
         private void BuscarCliente()
         {
@@ -41,13 +41,13 @@ namespace AplicacionMDI
             }
         }
 
-    private void btnAgregar_Click(object sender, EventArgs e)
-    {
-       Agregar();
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Agregar();
 
-    }
+        }
 
-    private void Agregar()
+        private void Agregar()
         {
             frmDetalleVenta frm = new frmDetalleVenta();
             DetalleVenta det;
@@ -75,10 +75,10 @@ namespace AplicacionMDI
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
-    {
+        {
             Aceptar();
 
-    }
+        }
 
         private void Aceptar()
         {
@@ -112,11 +112,11 @@ namespace AplicacionMDI
             return new Venta()
             {
                 Cliente = this.Cliente,
-                TipoDocumento = this.cboDocumento.Text.Substring(0, 1),
-                Serie = this.txtSerie.Text ,
-                Numero = Int32.Parse( this.txtNumero.Text ),
+                TipoDocumentoVenta = (DocumentoVenta)this.cboDocumento.SelectedItem,
+                Serie = this.txtSerie.Text,
+                Numero = Int32.Parse(this.txtNumero.Text),
                 Fecha = this.dtpFecha.Value,
-                Vigente = true ,
+                Vigente = true,
                 Detalles = this.Detalles
             };
         }
@@ -148,6 +148,10 @@ namespace AplicacionMDI
             {
                 Agregar();
             }
+            if (e.KeyCode == Keys.F4)
+            {
+                Eliminar();
+            }
 
             if (e.KeyCode == Keys.F5)
             {
@@ -161,28 +165,23 @@ namespace AplicacionMDI
 
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+
+        private void Eliminar()
         {
-            
+            DetalleVenta Actual;
+            if (this.dgvDetalles.CurrentRow != null)
+            {
+                Actual = (DetalleVenta)this.dgvDetalles.CurrentRow.DataBoundItem;
+                this.Detalles.Remove(Actual);
+                this.dgvDetalles.DataSource = null;
+                this.dgvDetalles.DataSource = this.Detalles;
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un detalle para eliminar", this.Text);
+                this.dgvDetalles.Focus();
+            }
         }
-
-        //private void Eliminar()
-        //{
-        //     DetalleVenta Actual;
-        //    if (this.dgvDetalles.CurrentRow != null)
-        //    {
-        //        Actual = (DetalleVenta)this.dgvDetalles.CurrentRow.DataBoundItem;
-        //        this.Detalles.Remove(Actual);
-
-        //        this.dgvDetalles.DataSource = this.Detalles;
-        //        this.dgvDetalles.Refresh();
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Debe seleccionar un detalle para eliminar", this.Text);
-        //        this.dgvDetalles.Focus();
-        //    }
-        //}
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -191,32 +190,46 @@ namespace AplicacionMDI
 
         private void frmVenta_Load(object sender, EventArgs e)
         {
-            CargarInicial();
+            CargarDocumentoVenta();
+            //CargarInicial();
         }
-
-        private void CargarInicial()
+        private void CargarDocumentoVenta()
         {
-            int ultimoNumero = 0;
-            if (Program.Ventas.Count != 0)
+            if (Program.DocumentoVentas.Count > 0)
             {
-                cboDocumento.SelectedItem = "Boleta";
-                ultimoNumero = Program.Ventas.Where(v => v.NombreDocumento == "Boleta").Last().Numero;
-                txtNumero.Text = Convert.ToString(ultimoNumero + 1);
+                this.cboDocumento.DisplayMember = "Nombre";
+                this.cboDocumento.DataSource = Program.DocumentoVentas;
             }
         }
+        //private void CargarInicial()
+        //{
+        //    int ultimoNumero = 0;
+        //    if (Program.Ventas.Count != 0)
+        //    {
+        //        cboDocumento.SelectedItem = "Boleta";
+        //        ultimoNumero = Program.Ventas.Where(v => v.NombreDocumentoVenta  == "Boleta").Last().Numero;
+        //        txtNumero.Text = Convert.ToString(ultimoNumero + 1);
+        //    }
+        //}
 
         private void cboDocumento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboDocumento.SelectedItem == "Boleta")
+            string nombredocumento;
+            string serie;
+            int correlativo;
+            if (Program.Ventas.Count != 0)
             {
-                txtSerie.Text = "B001";
-                //var ultimoNumero = Program.Ventas.Last().Numero;
-                //txtNumero.Text = Convert.ToString(ultimoNumero + 1);
+                nombredocumento = cboDocumento.Text ;
+                var listaventa = Program.Ventas.Where(v => v.NombreDocumentoVenta == nombredocumento).ToList();
+                if (listaventa .Count > 0) 
+                { 
+                    correlativo  = listaventa.Last ().Numero;
+                    serie  = listaventa.Last().Serie;
+                    txtSerie.Text = serie; 
+                    txtNumero.Text = (correlativo + 1).ToString();
+                }
             }
-            if (cboDocumento.SelectedItem == "Factura")
-            {
-                txtSerie.Text = "F001";
-            }
+
         }
 
         private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
@@ -227,6 +240,11 @@ namespace AplicacionMDI
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Eliminar();
         }
     }
 }

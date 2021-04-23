@@ -47,3 +47,4 @@ C:\Users\MARTIN\TRABAJO_PROGRAMACION_III\16-04-2021\AplicacionMDI\obj\Debug\Apli
 C:\Users\MARTIN\TRABAJO_PROGRAMACION_III\16-04-2021\AplicacionMDI\obj\Debug\AplicacionMDI.csproj.CoreCompileInputs.cache
 C:\Users\MARTIN\TRABAJO_PROGRAMACION_III\16-04-2021\AplicacionMDI\obj\Debug\AplicacionMDI.exe
 C:\Users\MARTIN\TRABAJO_PROGRAMACION_III\16-04-2021\AplicacionMDI\obj\Debug\AplicacionMDI.pdb
+C:\Users\marco\TRABAJO_PROGRAMACION_III\16-04-2021\AplicacionMDI\obj\Debug\AplicacionMDI.frmDocumentoVenta.resources
