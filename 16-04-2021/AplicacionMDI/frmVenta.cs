@@ -59,10 +59,22 @@ namespace AplicacionMDI
                 this.dgvDetalles.DataSource = null;
                 this.dgvDetalles.AutoGenerateColumns = false;
                 this.dgvDetalles.DataSource = this.Detalles;
+                this.ActualizarTotal(this.Detalles);
             }
         }
 
-    private void btnAceptar_Click(object sender, EventArgs e)
+        private void ActualizarTotal(List<DetalleVenta> detalles)
+        {
+            double total = 0;
+            foreach (var det in detalles)
+            {
+                total = total + (det.PrecioUnitario * det.Cantidad);
+            }
+
+            this.txtTotal.Text = total + "";
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
     {
             Aceptar();
 

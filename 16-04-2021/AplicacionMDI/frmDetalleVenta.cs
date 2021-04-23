@@ -64,5 +64,11 @@ namespace AplicacionMDI
         this.cboProducto.DataSource = Program.Productos;
       }
     }
-  }
+
+        private void cboProducto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Producto prod = (Producto)cboProducto.SelectedItem;
+            txtPrecio.Text = prod.Precio + "";
+        }
+    }
 }
